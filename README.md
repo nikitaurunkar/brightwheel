@@ -3,15 +3,15 @@
 - The access.sql file is used query the csv imports from the dataset provided to me and for basic notes etc.
 - The brightwheel folder has the transformation logic from source to intermediate tables.
 
-- I have created a seprate repository for this assesment from Brightwheel in my personal Github folder. Since I am the only person using this repo, I did not create sperate branches to do any changes and then merge the branch into the main branch, but that would definately be something I would do in the real world.
+- I have created a seperate repository for this assesment from Brightwheel in my personal Github folder. Since I am the only person using this repo, I did not create seperate branches to do any changes and then merge the branch into the main branch, but that would definately be something I would do in the real world.
 
 **Here are the overall changes I made**
 - Ensured the date format is consistent with all the tables (timestamp)
-- did not include any columns which were null and had no data
-- Ensured the format for phone number is consitent
+- Did not include any columns which were null and had no data
+- Ensured the format for phone number is consistent
 - Ensured the strings with capital values are converted into lower values for consistency
-- converted to boolean values where necessary
-- Ensured consistent formatting within the columns. Eg: Changes 'United States' to US to allow consistency. There are similar issues with States, did not handle these
+- Converted to boolean values where necessary
+- Ensured consistent formatting within the columns. Eg: Changes 'United States' to US to allow consistency. There are similar issues with States, did not handle these in one of the cases
 
 **Tables**
 PS : Apart from the salesforce_leads table, all the tables should have a surrogate key (incremental numbers) as a key or a combination of multiple keys to create a primary_key. Here, I have not created any keys.
@@ -51,7 +51,8 @@ Since these are only leads, the data does not have transactional information lik
 
 Tests in future
 - As there is more data, here are a few tests we can add to ensure consistency and data quality
-  - For state,  there is only 2 character limit, to not allow to full forms vs short forms
+  - For state,  there is only 2 character limit, to not allow to full forms vs short forms. Else if there is a Geo table, this can be coalesced to join with respective formats
   - For phone numbers : Ensuring no other fields are allowed like '()' or '-' and is only limited to integers
   - Ensuring there are no duplicate phone numbers or emails to allow for single entry per customer
+  
 
