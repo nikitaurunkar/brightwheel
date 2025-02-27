@@ -13,7 +13,15 @@ select
   company,
   street,
   city,
-  state,
+  CASE WHEN state = 'New York' then 'NY'
+       WHEN state = 'California' then 'CA'
+       WHEN state = 'Maryland' then 'MD'
+       WHEN state = 'Iowa' then 'IO'
+       WHEN state = 'Florida' then 'FL'
+       WHEN state = 'Oregon' then 'OR'
+       WHEN state = 'Wiscosin' then 'WI'
+       WHEN state = 'Pennsylvania' then 'PA'
+    ELSE state end as state,
   cast(postal_code as int) as zip,
   CASE WHEN country = 'United States' then 'US' when country = 'Canada' then 'CA' else country end as country,
   cast(phone as int) as phone,
