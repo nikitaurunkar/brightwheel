@@ -12,7 +12,7 @@
 - Ensured the format for phone number is consistent
 - Ensured the strings with capital values are converted into lower values for consistency
 - Converted to boolean values where necessary
-- Ensured consistent formatting within the columns. Eg: Changes 'United States' to US to allow consistency. There are similar issues with States, did not handle these in one of the cases
+- Ensured consistent formatting within the columns. Eg: Changes 'United States' to US to allow consistency. There are similar issues with States in Salesforce_leads, handled some of these, not all of it.
 
 **Tables**
 PS : Apart from the salesforce_leads table, all the tables should have a surrogate key (incremental numbers) as a key or a combination of multiple keys to create a primary_key. Here, I have not created any keys.
