@@ -1,5 +1,8 @@
--- Databricks notebook source
-CREATE TABLE IF NOT EXISTS test_access_control.second_source
+
+-- Use the `ref` function to select from other models
+{{ config(materialized='table') }}
+
+with source_data as (
 select 
     split_part(lower(`Type License`),'-',1) as license_type ,
     split_part((`Type License`),'-',2) as license_number,
@@ -28,7 +31,7 @@ select
     left(`Evening Hours`, charindex('(', `Evening Hours`)-1) as evening_hours
 from testcsv.brightwheel_source2
 
--- COMMAND ----------
+)
 
 select *
-from test_access_control.second_source
+from source_data
