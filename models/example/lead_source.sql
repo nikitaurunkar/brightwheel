@@ -1,5 +1,9 @@
--- Databricks notebook source
-CREATE TABLE IF NOT EXISTS test_access_control.leads
+
+-- Use the `ref` function to select from other models
+{{ config(materialized='table') }}
+
+with source_data as (
+
 select 
   cast(id as int) as id,
   cast(is_deleted as boolean) as is_deleted,
@@ -30,7 +34,7 @@ select
 
 from testcsv.brightwheel_raw_data
 
--- COMMAND ----------
+)
 
 select *
-from test_access_control.leads
+from source_data

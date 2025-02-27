@@ -1,7 +1,9 @@
--- Databricks notebook source
-CREATE TABLE IF NOT EXISTS test_access_control.third_source
--- Source 3, monitoring frequency and agency number fields are blank, hence left out intentionally. 
---Will add back if there is additional data in the future 
+
+-- Use the `ref` function to select from other models
+{{ config(materialized='table') }}
+
+with source_data as (
+
 select 
     cast(operation as int) as operation,
     `Operation Name` as operation_name,
@@ -23,7 +25,7 @@ select
     cast(School as boolean) as school
 FROM testcsv.brightwheel_source3
 
--- COMMAND ----------
+)
 
 select *
-from test_access_control.third_source
+from source_data
