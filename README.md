@@ -1,9 +1,10 @@
 # Brightwheel take home assesment
 
-- The access.sql file is used query the csv imports from the dataset provided to me and for basic notes etc.
-- The brightwheel folder has the transformation logic from source to intermediate tables.
+- The access.sql file in brightwheel folder is used query the csv imports from the dataset provided to me and for basic notes etc.
+- The initial dataset was loaded into databricks
 
-- I have created a seperate repository for this assesment from Brightwheel in my personal Github folder. Since I am the only person using this repo, I did not create seperate branches to do any changes and then merge the branch into the main branch, but that would definately be something I would do in the real world.
+- I have created a seperate repository for this assesment from Brightwheel in my personal Github folder. It took me some time to test and create the connections from my trial version of DBT cloud and github and then to initialize the project. I could have also added base tables in DBT and then referenced them in the transformation layer, this would have provided me with the lineage diagram.
+- But the column names were giving errors and would have taken more time to clean and make DBT compatible
 
 **Here are the overall changes I made**
 - Ensured the date format is consistent with all the tables (timestamp)
