@@ -4,12 +4,59 @@ version: 2
 models:
     - name: first_source
       description: "Transformation for source1"
+      columns:
+          - name: credential_number
+            description: "Credential Number"
+            tests:
+                - not_null
+          - name: phone
 
     - name: second_source
       description: "Transformation for source 2"
+      columns:
+          - name: Zip
+            description: "Zip code"
+            tests:
+                - not_null
+          - name: capacity
+            description: "Capacity"
+            tests:
+                - not_null
 
     - name: third_source
       description: "Transformation for source 3"
+      columns:
+          - name: Operation
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          - name: facility_id
+            description: "FK to the facility table"
+            tests:
+                - not_null
+          - name: Infant
+            description: "Flag for is infant"
+            tests:
+                - not_null
+          - name: Toddler
+            description: "Flag for is toddler"
+            tests:
+                - not_null
+          - name: Preschool
+            description: "Flag for is preschool"
+            tests:
+                - not_null
+          - name: School
+            description: "Flag for is school"
+            tests:
+                - not_null
 
     - name: lead_source
       description: "Transformation for salesforce leads"
+      columns:
+          - name: brightwheel_school_uuid
+            description: "The foreign key for this table connecting to schools info"
+            tests:
+                - unique
+                - not_null
