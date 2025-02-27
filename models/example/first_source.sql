@@ -22,7 +22,7 @@ with source_data as (
         trim(left(right(`address`, position (','  in reverse(`address`))-1),3)) as State,
         cast(right(right(`address`, position (','  in reverse(`address`))-1),5) as int) as Zip,
         lower(county) as county,
-        cast(replace(`Phone`,'-','') as int) as phone,
+        replace(`Phone`,'-','') as phone,
         cast(`First Issue Date` as timestamp) as first_issue_date,
         lower(`Primary Contact Name`) as primary_contact_name,
         lower(`Primary Contact Role`) as primary_contact_role
